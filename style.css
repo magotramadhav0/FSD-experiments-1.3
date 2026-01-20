@@ -1,0 +1,85 @@
+:root {
+    --bg-color: #f4f6f8;
+    --text-color: #000;
+    --card-color: #ffffff;
+    --header-color: #1f3c88;
+}
+
+body.dark {
+    --bg-color: #1e1e1e;
+    --text-color: #ffffff;
+    --card-color: #2c2c2c;
+    --header-color: #111;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.dashboard {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    background: var(--header-color);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: var(--card-color);
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 10px 0;
+}
+
+.content {
+    grid-area: content;
+    padding: 20px;
+    background: var(--bg-color);
+}
+
+.footer {
+    grid-area: footer;
+    background: var(--card-color);
+    text-align: center;
+    padding: 10px;
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-areas:
+            "header"
+            "content"
+            "sidebar"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+}
